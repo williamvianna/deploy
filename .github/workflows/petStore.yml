@@ -1,0 +1,32 @@
+name: CI for petStore
+
+on:
+  push:
+    paths:
+      - 'petStore/**'
+  pull_request:
+    paths:
+      - 'petStore/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Build with Gradle
+      run: |
+        cd petStore
+        ./gradlew build
+        
+    - name: Run tests
+      run: |
+        cd petStore
+        ./gradlew test
