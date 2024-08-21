@@ -5,14 +5,10 @@ on:
     branches:
       - main
       - develop
-    paths:
-      - 'origamid/**'  # Executa o CI apenas quando arquivos em 'origamid/' forem modificados
   pull_request:
     branches:
       - main
       - develop
-    paths:
-      - 'origamid/**'  # Executa o CI apenas para PRs que modificam arquivos em 'origamid/'
 
 jobs:
   build:
